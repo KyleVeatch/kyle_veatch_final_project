@@ -41,7 +41,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/bookmarks">Bookmarks</a></li>
+          <li><a href="/favorites">Favorites</a></li>
           <li><a href="/users">Users</a></li>
           <li><a href="/cuisines">Cuisines</a></li>
           <li><a href="/cities">Cities</a></li>
@@ -54,7 +54,7 @@
           <% if current_user.present? %>
             <li>
               <a href="/users/edit">
-                <%= current_user.restaurant_id %>
+                <%= current_user.created_at %>
               </a>
             </li>
 

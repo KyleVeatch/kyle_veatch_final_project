@@ -10,6 +10,7 @@ class Restaurant < ApplicationRecord
              :counter_cache => true
 
   has_many   :bookmarks,
+             :class_name => "Favorite",
              :dependent => :destroy
 
   # Indirect associations

@@ -105,31 +105,13 @@
         <input type="text" id="zipcode" name="zipcode" placeholder="Zipcode" class="form-control" value="">
       </div>
 
-      <!-- Label and input for kyle_notes -->
+      <!-- Label and input for notes -->
       <div class="form-group">
-        <label for="kyle_notes" class="control-label">
-          Kyle notes
+        <label for="notes" class="control-label">
+          Notes
         </label>
 
-        <input type="text" id="kyle_notes" name="kyle_notes" placeholder="Kyle notes" class="form-control" value="">
-      </div>
-
-      <!-- Label and input for dish_reccs -->
-      <div class="form-group">
-        <label for="dish_reccs" class="control-label">
-          Dish reccs
-        </label>
-
-        <input type="text" id="dish_reccs" name="dish_reccs" placeholder="Dish reccs" class="form-control" value="">
-      </div>
-
-      <!-- Label and input for kyle_rating -->
-      <div class="form-group">
-        <label for="kyle_rating" class="control-label">
-          Kyle rating
-        </label>
-
-        <input type="text" id="kyle_rating" name="kyle_rating" placeholder="Kyle rating" class="form-control" value="">
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="">
       </div>
 
       <button class="btn btn-block btn-success">
@@ -188,60 +170,6 @@
 
       <button class="btn btn-block btn-success">
         Create Neighborhood
-      </button>
-    </form>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- A City has many cuisines -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Cuisines
-      </li>
-
-      <% @city.cuisines.each do |cuisine| %>
-        <li class="list-group-item">
-          <a href="/cuisines/<%= cuisine.id %>">
-            <%= cuisine.name %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/cuisines/<%= cuisine.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/cuisines/<%= cuisine.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_cuisine/<%= cuisine.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_cuisine" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for name -->
-      <div class="form-group">
-        <label for="name" class="control-label">
-          Name
-        </label>
-
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
-      </div>
-
-      <!-- Label and input for city_id -->
-      <input type="hidden" name="city_id" value="<%= @city.id %>">
-
-      <button class="btn btn-block btn-success">
-        Create Cuisine
       </button>
     </form>
       </li>

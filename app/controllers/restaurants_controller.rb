@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @bookmark = Bookmark.new
+    @favorite = Favorite.new
     @restaurant = Restaurant.find(params[:id])
 
     render("restaurants/show.html.erb")
@@ -28,9 +28,7 @@ class RestaurantsController < ApplicationController
     @restaurant.address = params[:address]
     @restaurant.city_id = params[:city_id]
     @restaurant.zipcode = params[:zipcode]
-    @restaurant.kyle_notes = params[:kyle_notes]
-    @restaurant.dish_reccs = params[:dish_reccs]
-    @restaurant.kyle_rating = params[:kyle_rating]
+    @restaurant.notes = params[:notes]
 
     save_status = @restaurant.save
 
@@ -63,9 +61,7 @@ class RestaurantsController < ApplicationController
     @restaurant.address = params[:address]
     @restaurant.city_id = params[:city_id]
     @restaurant.zipcode = params[:zipcode]
-    @restaurant.kyle_notes = params[:kyle_notes]
-    @restaurant.dish_reccs = params[:dish_reccs]
-    @restaurant.kyle_rating = params[:kyle_rating]
+    @restaurant.notes = params[:notes]
 
     save_status = @restaurant.save
 

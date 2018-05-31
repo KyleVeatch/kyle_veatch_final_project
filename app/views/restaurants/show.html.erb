@@ -41,14 +41,8 @@
       <dt>Zipcode</dt>
       <dd><%= @restaurant.zipcode %></dd>
 
-      <dt>Kyle notes</dt>
-      <dd><%= @restaurant.kyle_notes %></dd>
-
-      <dt>Dish reccs</dt>
-      <dd><%= @restaurant.dish_reccs %></dd>
-
-      <dt>Kyle rating</dt>
-      <dd><%= @restaurant.kyle_rating %></dd>
+      <dt>Notes</dt>
+      <dd><%= @restaurant.notes %></dd>
 
     </dl>
 
@@ -75,19 +69,19 @@
         Bookmarks
       </li>
 
-      <% @restaurant.bookmarks.each do |bookmark| %>
+      <% @restaurant.bookmarks.each do |favorite| %>
         <li class="list-group-item">
-          <a href="/bookmarks/<%= bookmark.id %>">
-            <%= bookmark.user_id %>
+          <a href="/favorites/<%= favorite.id %>">
+            <%= favorite.user_id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
-            <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">
+            <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/bookmarks/<%= bookmark.id %>/edit" class="btn btn-warning">
+            <a href="/favorites/<%= favorite.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
             </a>
-            <a href="/delete_bookmark/<%= bookmark.id %>" class="btn btn-danger" rel="nofollow">
+            <a href="/delete_favorite/<%= favorite.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
             </a>
           </div>
@@ -95,7 +89,7 @@
       <% end %>
 
       <li class="list-group-item">
-        <form action="/create_bookmark" method="post">
+        <form action="/create_favorite" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -106,7 +100,7 @@
       <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
 
       <button class="btn btn-block btn-success">
-        Create Bookmark
+        Create Favorite
       </button>
     </form>
       </li>
@@ -126,7 +120,7 @@
       <% @restaurant.diners.each do |user| %>
         <li class="list-group-item">
           <a href="/users/<%= user.id %>">
-            <%= user.restaurant_id %>
+            <%= user.created_at %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/users/<%= user.id %>" class="btn btn-primary">

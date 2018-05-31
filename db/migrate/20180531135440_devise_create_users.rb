@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.string :email
       t.string :password
-      t.integer :restaurant_id
+      t.string :name
 
       t.timestamps null: false
     end
