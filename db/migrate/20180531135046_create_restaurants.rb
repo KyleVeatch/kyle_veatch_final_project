@@ -7,9 +7,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :address
       t.integer :city_id
       t.integer :zipcode
-      t.string :kyle_notes
-      t.string :dish_reccs
-      t.integer :kyle_rating
+      t.string :notes
 
       t.timestamps
 

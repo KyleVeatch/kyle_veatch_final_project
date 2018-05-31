@@ -1,7 +1,7 @@
 class CuisinesController < ApplicationController
   def index
     @q = Cuisine.ransack(params[:q])
-    @cuisines = @q.result(:distinct => true).includes(:city, :restaurants).page(params[:page]).per(10)
+    @cuisines = @q.result(:distinct => true).includes(:restaurants).page(params[:page]).per(10)
 
     render("cuisines/index.html.erb")
   end
@@ -23,7 +23,6 @@ class CuisinesController < ApplicationController
     @cuisine = Cuisine.new
 
     @cuisine.name = params[:name]
-    @cuisine.city_id = params[:city_id]
 
     save_status = @cuisine.save
 
@@ -51,7 +50,6 @@ class CuisinesController < ApplicationController
     @cuisine = Cuisine.find(params[:id])
 
     @cuisine.name = params[:name]
-    @cuisine.city_id = params[:city_id]
 
     save_status = @cuisine.save
 
